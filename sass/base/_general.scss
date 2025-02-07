@@ -6,7 +6,7 @@ body {
   font-size: fs(400);
   color: clr(neutral, 100);
   line-height: 1.5;
-  background-color: clr(neutral, 400);;
+  background-color: clr(neutral, 400);
 }
 
 h1 {
@@ -67,3 +67,31 @@ main {
     width: 100%;
     cursor: pointer;
   }
+
+  input[type="range"] {
+    appearance: none;
+    border: none; /*Removes extra border that FF applies*/
+    background-color: clr(neutral, 400);
+    
+   
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    border: none; /*Removes extra border that FF applies*/
+    background-color:clr(neutral, 100);
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    border: none; /*Removes extra border that FF applies*/
+    background-color:clr(neutral, 100);
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+  }
+  
+
+  
