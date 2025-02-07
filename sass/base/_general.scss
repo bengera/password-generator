@@ -4,7 +4,66 @@ body {
   font-family: 'JetBrains Mono', monospace;
   font-weight: $fw-700;
   font-size: fs(400);
-  color: clr(neutral, 400);
+  color: clr(neutral, 100);
   line-height: 1.5;
-  background-color: clr(accent, 400);;
+  background-color: clr(neutral, 400);;
 }
+
+h1 {
+  
+  font-size: 28px;
+  color: clr(neutral, 200);
+}
+
+main {
+  padding: 1rem;
+}
+
+.app {
+  // border: 2px solid black;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.pw-box {
+  display: flex;
+  justify-content: space-between;
+  font-size: 32px;
+  // border: 1px solid red;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  align-items: center;
+  background-color: clr(neutral, 300);
+}
+
+.controls {
+  background-color: clr(neutral, 300);
+  padding: 1.5rem;
+
+  &__character-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    &__slidecontainer{
+      grid-column: 1/-1;
+    }
+
+    &__number {
+      text-align: right;
+      font-size: 32px;
+      color: clr(accent, 200);
+    }
+
+    &__character-text {
+      align-self: center;
+      // font-size: fs(400);
+    }
+  }
+
+  input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+  }

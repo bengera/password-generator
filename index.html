@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/sass/main.scss">
   </head>
   <body>
-    <h1>Password Generator</h1>
+    <h1 class="text-center">Password Generator</h1>
     <main>
       <div class="app">
 
@@ -25,10 +25,11 @@
             <div class="controls__character-container">
               <p class="controls__character-text">Character Length</p>
               <p class="controls__number">10</p>
+              <div class="controls__slidecontainer">
+                <input type="range" min="1" max="100" class="controls__slider" id="length">
+              </div>
             </div> <!--character-container end-->
-            <div class="controls__slidecontainer">
-              <input type="range" min="1" max="100" class="controls__slider" id="length">
-            </div>
+            
             <div class="checkboxes">
 
               <div class="checkbox-container">
