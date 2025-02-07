@@ -1,3 +1,4 @@
 {
-    "workbench.colorTheme": "Shades of Purple"
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.preferredDarkColorTheme": "monokai-charcoal"
 }
