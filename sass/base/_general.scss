@@ -63,6 +63,70 @@ main {
     }
   }
 
+  .checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    
+  }
+
+  .checkbox {
+    cursor: pointer;
+  }
+
+  .checkbox-container {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+ 
+
+  // Strength
+
+  .strength-box {
+    display: flex;
+  justify-content: space-between;
+    background-color: clr(neutral, 400);
+    padding: 1rem;
+
+    &__p {
+      text-transform: uppercase;
+      color: clr(neutral, 200);
+    }
+
+    &__current {
+      margin-right: 1rem;
+    }
+
+    &__right-content {
+      display: flex;
+    }
+
+    &__bar-container {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    &__bar {
+      width: 10px;
+      height: 28px;
+      border: 2px solid white;
+
+    }
+
+  }
+
+  .button {
+    padding: 2rem;
+  }
+
+  #box-1,
+  #box-2,
+  #box-3 {
+    background-color: clr(accent, 100);
+    border: 0;
+  }
+
 
 
 //OLD
