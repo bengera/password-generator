@@ -172,6 +172,12 @@ main {
     color: clr(neutral, 300);
     border: 0;
     text-transform: uppercase;
+    border: 2px solid clr(accent, 200);
+
+    &:hover {
+      color: clr(accent, 200);
+      background-color: transparent;
+    }
       
   }
 
@@ -183,12 +189,23 @@ main {
     background: url('/assets/images/icon-arrow-right.svg');
     background-size: contain;
     margin-left: 0.5rem;
+
+       
   }
 
+  .svg-copy-button {
+    &:hover path {
+      fill: #FFF;
+    }
+  }
+
+  
   .button-copy {
     border: 0;
     background-color: transparent;
     cursor: pointer;
+
+    
   }
 
   #box-1,
