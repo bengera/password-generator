@@ -134,6 +134,29 @@ main {
 
   }
 
+  input[type="checkbox"] {
+    appearance: none;
+   
+    border: 2px solid clr(neutral, 100);
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+  }
+
+  input[type="checkbox"]:hover {
+    border: 2px solid clr(accent, 200);
+  }
+
+  input[type="checkbox"]:checked {
+    background: url('/assets/images/icon-check.svg');
+    background-size: 65%, cover; 
+    background-position: 60% 60%;
+    background-repeat: no-repeat;
+    background-color: clr(accent, 200);
+    border: 0;
+  }
+
+
   .button {
     padding: 1.5rem;
     cursor: pointer;
