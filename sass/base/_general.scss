@@ -53,6 +53,7 @@ main {
     &__slidecontainer{
       grid-column: 1/-1;
       margin-bottom: 32px;
+      margin-top: -10px;
     }
 
     &__number {
@@ -121,8 +122,14 @@ main {
     }
 
     @include mq(small) {
+      padding: 1.5rem;
+      
+    }
+
+    @include mq(smallest) {
       padding: 0.8rem;
       font-size: 15px;
+      
     }
 
   }
