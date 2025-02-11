@@ -77,6 +77,15 @@ main {
 
   .checkbox {
     cursor: pointer;
+
+   
+
+    &__description {
+      @include mq(small) {
+        font-size: 16px;
+        
+      }
+    }
   }
 
   .checkbox-container {
