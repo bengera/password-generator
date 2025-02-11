@@ -145,11 +145,10 @@ main {
 
   input[type="checkbox"] {
     appearance: none;
-   
     border: 2px solid clr(neutral, 100);
     width: 20px;
     height: 20px;
-    margin-top: 5px;
+    margin-top: 2px;
   }
 
   input[type="checkbox"]:hover {
