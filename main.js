@@ -29,13 +29,18 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
   const lowCase = "abcdefghijklmnopqrstuvxyz";
   const upCase = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
   const numbers = "0123456789";
-  const symbols = "£$&()*+[]@#^-_!?";
+  const symbols = `!"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~`;
+  // const symbols = "£$&()*+[]@#^-_!?";
   let allChar = '';
 
 function generatePassword(passLength){
   checkInputs()
   
-  let password = '' // add guaranteed upper and lowerecase number manually
+  let password = '' 
+
+  // Add at least 1 random character from each chosen type before making
+  // and shuffling password
+
   let types = allChar;
   
   for (let i = 0; i < passLength; i++){
@@ -60,17 +65,17 @@ function checkInputs(){
   }
 
   if (checkbox.id === 'lower'){
-    console.log('Lower confirmed 👍')
+    // console.log('Lower confirmed 👍')
     allChar += lowCase;
   }
 
   if (checkbox.id === 'number'){
-    console.log('number confirmed 👍')
+    // console.log('number confirmed 👍')
     allChar += numbers;
   }
 
   if (checkbox.id === 'symbol'){
-    console.log('symbol confirmed 👍')
+    // console.log('symbol confirmed 👍')
     allChar += symbols;
   }
   
