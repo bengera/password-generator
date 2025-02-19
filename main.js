@@ -23,22 +23,11 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
   const upCase = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
   const numbers = "0123456789";
   const specialChar = "£$&()*+[]@#^-_!?";
+  const allChar = '';
 
 function generatePassword(passLength){
-  const checked = document.querySelectorAll('input:checked');
+  checkInputs()
   
-  checked.forEach((checkbox) => {
-    console.log(`${checkbox.id} is checked`)
-  })
-  
-  
-/*
-
-
-*/
-
-
-
   let password = 'Ef-4' // add guaranteed upper and lowerecase number manually
   let allType = lowCase.concat(upCase, numbers, specialChar);
   
@@ -51,6 +40,21 @@ function generatePassword(passLength){
    console.log(password)
    passwordField.textContent = password;
   return password;
+}
+
+function checkInputs(){
+  const checked = document.querySelectorAll('input:checked');
+  
+  checked.forEach((checkbox) => {
+    console.log(`${checkbox.id} is checked ✅`)
+    // If checkbox contains number - push numbers into all characters string
+    if(checkbox.id === 'upper'){
+      console.log(`${checkbox.id} is upper`)
+    } else {
+      console.log(`${checkbox.id}is ${checkbox.id}`)
+    }
+  })
+  return;
 }
 
 
