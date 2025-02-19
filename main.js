@@ -3,6 +3,13 @@ const output = document.getElementById('sliderValue');
 const generateButton = document.querySelector('.button');
 const passwordField = document.querySelector('.pw-text');
 
+// FF not respecting default value
+document.addEventListener("DOMContentLoaded", ()=> {
+  slider.value = 0;
+  for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
+        e.style.setProperty('--value', e.value);
+  }
+})
 
 slider.addEventListener('input', () => {
   output.textContent = slider.value;
@@ -13,6 +20,7 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
     e.style.setProperty('--min', e.min == '' ? '0' : e.min);
     e.style.setProperty('--max', e.max == '' ? '100' : e.max);
     e.addEventListener('input', () => e.style.setProperty('--value', e.value));
+    
   }
 
 
@@ -44,15 +52,10 @@ function generatePassword(passLength){
 
 function checkInputs(){
   const checked = document.querySelectorAll('input:checked');
-  
   checked.forEach((checkbox) => {
-    console.log(`${checkbox.id} is checked ✅`)
-    // If checkbox contains number - push numbers into all characters string
-    if(checkbox.id === 'upper'){
-      console.log(`${checkbox.id} is upper`)
-    } else {
-      console.log(`${checkbox.id}is ${checkbox.id}`)
-    }
+  console.log(`${checkbox.id} is checked ✅`)
+  
+     
   })
   return;
 }
