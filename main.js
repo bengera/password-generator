@@ -23,24 +23,23 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
     
   }
 
-
   /******************* Password Generation *******************
   *************************************************************/
 
   const lowCase = "abcdefghijklmnopqrstuvxyz";
   const upCase = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
   const numbers = "0123456789";
-  const specialChar = "£$&()*+[]@#^-_!?";
-  const allChar = '';
+  const symbols = "£$&()*+[]@#^-_!?";
+  let allChar = '';
 
 function generatePassword(passLength){
   checkInputs()
   
-  let password = 'Ef-4' // add guaranteed upper and lowerecase number manually
-  let allType = lowCase.concat(upCase, numbers, specialChar);
+  let password = '' // add guaranteed upper and lowerecase number manually
+  let types = allChar;
   
-  for (let i = 0; i < passLength - 4; i++){
-    password += allType.charAt(Math.floor(Math.random() * allType.length));
+  for (let i = 0; i < passLength; i++){
+    password += types.charAt(Math.floor(Math.random() * types.length));
     
   }
   password = shuffleString(password)
@@ -51,13 +50,34 @@ function generatePassword(passLength){
 }
 
 function checkInputs(){
+  allChar = '';
   const checked = document.querySelectorAll('input:checked');
   checked.forEach((checkbox) => {
-  console.log(`${checkbox.id} is checked ✅`)
+  
+  if (checkbox.id === 'upper'){
+    allChar += upCase;
+    
+  }
+
+  if (checkbox.id === 'lower'){
+    console.log('Lower confirmed 👍')
+    allChar += lowCase;
+  }
+
+  if (checkbox.id === 'number'){
+    console.log('number confirmed 👍')
+    allChar += numbers;
+  }
+
+  if (checkbox.id === 'symbol'){
+    console.log('symbol confirmed 👍')
+    allChar += symbols;
+  }
   
      
   })
-  return;
+  console.log(`allChar contains ➡ ${allChar}`)
+  
 }
 
 
