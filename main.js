@@ -1,6 +1,8 @@
 const slider = document.getElementById('slider');
 const output = document.getElementById('sliderValue');
 const generateButton = document.querySelector('.button');
+const passwordField = document.querySelector('.pw-text');
+
 
 slider.addEventListener('input', () => {
   output.textContent = slider.value;
@@ -22,9 +24,21 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
   const numbers = "0123456789";
   const specialChar = "£$&()*+[]@#^-_!?";
 
-  // let passLength = 20;
-
 function generatePassword(passLength){
+  const checked = document.querySelectorAll('input:checked');
+  
+  checked.forEach((checkbox) => {
+    console.log(`${checkbox.id} is checked`)
+  })
+  
+  
+/*
+
+
+*/
+
+
+
   let password = 'Ef-4' // add guaranteed upper and lowerecase number manually
   let allType = lowCase.concat(upCase, numbers, specialChar);
   
@@ -35,6 +49,7 @@ function generatePassword(passLength){
   password = shuffleString(password)
   console.log(`This password is ${password.length} characters long`)
    console.log(password)
+   passwordField.textContent = password;
   return password;
 }
 
@@ -50,12 +65,12 @@ function shuffleString(str) {
 }
 
 generateButton.addEventListener('click', () => {
-  console.log(`Slider value is ${slider.value}`)
   generatePassword(slider.value)
  
 })
+
+
 /*
 
-1 - 
 
 */
