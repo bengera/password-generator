@@ -69,14 +69,10 @@ function generatePassword(passLength){
     console.log(firstCharacters)
 
    }
+   
+   password = firstCharacters.join('');
 
-
-    // const firstCharacters = selectedTypes[i].charAt(Math.floor(Math.random() * selectedTypes[i].length))
-    // console.log(firstCharacters);
   }
-
-    // firstCharacters += type.charAt(Math.floor(Math.random() * type.length))
-    // password = firstCharacters;
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -84,7 +80,7 @@ function generatePassword(passLength){
 ////////////////////////////////////////////////////////////////////////
 
   let types = allChar;
-  for (let i = 0; i < passLength; i++){
+  for (let i = 0; i < passLength - 4; i++){
     password += types.charAt(Math.floor(Math.random() * types.length));
     
   }
