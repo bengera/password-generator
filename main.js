@@ -34,16 +34,50 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
   let selectedTypes = [];
   let allChar = '';
   let password = '' 
-  let firstCharacters;
+  let firstCharacters = [];
 
 function generatePassword(passLength){
   checkInputs()
   
-  selectedTypes.forEach((type) => {
-    console.log(type)
+  for (let i = 0; i < selectedTypes.length; i++){
+   console.log(selectedTypes[i]);
+   
+   if(selectedTypes[i] === 'lower'){
+    let lowerCharacter = lowCase.charAt(Math.floor(Math.random() * lowCase.length));
+    firstCharacters.push(lowerCharacter);
+    console.log(firstCharacters)
+
+   }
+
+   if(selectedTypes[i] === 'upper'){
+    let upperCharacter = upCase.charAt(Math.floor(Math.random() * upCase.length));
+    firstCharacters.push(upperCharacter);
+    console.log(firstCharacters)
+
+   }
+
+   if(selectedTypes[i] === 'number'){
+    let numberCharacter = numbers.charAt(Math.floor(Math.random() * numbers.length));
+    firstCharacters.push(numberCharacter);
+    console.log(firstCharacters)
+
+   }
+
+   if(selectedTypes[i] === 'symbol'){
+    let symbolCharacter = symbols.charAt(Math.floor(Math.random() * symbols.length));
+    firstCharacters.push(symbolCharacter);
+    console.log(firstCharacters)
+
+   }
+
+
+    // const firstCharacters = selectedTypes[i].charAt(Math.floor(Math.random() * selectedTypes[i].length))
+    // console.log(firstCharacters);
+  }
+
     // firstCharacters += type.charAt(Math.floor(Math.random() * type.length))
     // password = firstCharacters;
-  })
+
 
 /////////////////////////////////////////////////////////////////////////
 //////////////////Generate Remaining////////////////////////////////////
@@ -56,7 +90,7 @@ function generatePassword(passLength){
   }
   password = shuffleString(password)
   console.log(`This password is ${password.length} characters long`)
-   console.log(password)
+  //  console.log(password)
    passwordField.textContent = password;
   return password;
 }
@@ -64,7 +98,8 @@ function generatePassword(passLength){
 function checkInputs(){
   allChar = '';
   password = '';
-  firstCharacters = '';
+  selectedTypes = [];
+  
   const checked = document.querySelectorAll('input:checked');
   checked.forEach((checkbox) => {
   
@@ -94,7 +129,7 @@ function checkInputs(){
   
      
   })
-  console.log(`allChar contains ➡ ${allChar}`)
+  // console.log(`allChar contains ➡ ${allChar}`)
   
 }
 
@@ -111,6 +146,7 @@ function shuffleString(str) {
 
 generateButton.addEventListener('click', () => {
   generatePassword(slider.value)
+  firstCharacters = [];
  
 })
 
