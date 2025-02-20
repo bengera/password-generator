@@ -30,6 +30,8 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
   const upCase = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
   const numbers = "0123456789";
   const symbols = `!"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~`;
+
+  //Array(4) [ "Z", "q", "5", "\\" ]
  
   let selectedTypes = [];
   let allChar = '';
@@ -38,41 +40,9 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
 
 function generatePassword(passLength){
   checkInputs()
+  addInitialCharacters()
   
-  for (let i = 0; i < selectedTypes.length; i++){
-   console.log(selectedTypes[i]);
-   
-   if(selectedTypes[i] === 'lower'){
-    let lowerCharacter = lowCase.charAt(Math.floor(Math.random() * lowCase.length));
-    firstCharacters.push(lowerCharacter);
-    console.log(firstCharacters)
-
-   }
-
-   if(selectedTypes[i] === 'upper'){
-    let upperCharacter = upCase.charAt(Math.floor(Math.random() * upCase.length));
-    firstCharacters.push(upperCharacter);
-    console.log(firstCharacters)
-
-   }
-
-   if(selectedTypes[i] === 'number'){
-    let numberCharacter = numbers.charAt(Math.floor(Math.random() * numbers.length));
-    firstCharacters.push(numberCharacter);
-    console.log(firstCharacters)
-
-   }
-
-   if(selectedTypes[i] === 'symbol'){
-    let symbolCharacter = symbols.charAt(Math.floor(Math.random() * symbols.length));
-    firstCharacters.push(symbolCharacter);
-    console.log(firstCharacters)
-
-   }
-   
-   password = firstCharacters.join('');
-
-  }
+ 
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -127,6 +97,45 @@ function checkInputs(){
   })
   // console.log(`allChar contains ➡ ${allChar}`)
   
+}
+
+function addInitialCharacters() {
+  for (let i = 0; i < selectedTypes.length; i++){
+    console.log(selectedTypes[i]);
+    
+    if(selectedTypes[i] === 'lower'){
+     let lowerCharacter = lowCase.charAt(Math.floor(Math.random() * lowCase.length));
+     firstCharacters.push(lowerCharacter);
+     
+ 
+    }
+ 
+    if(selectedTypes[i] === 'upper'){
+     let upperCharacter = upCase.charAt(Math.floor(Math.random() * upCase.length));
+     firstCharacters.push(upperCharacter);
+     
+ 
+    }
+ 
+    if(selectedTypes[i] === 'number'){
+     let numberCharacter = numbers.charAt(Math.floor(Math.random() * numbers.length));
+     firstCharacters.push(numberCharacter);
+     
+ 
+    }
+ 
+    if(selectedTypes[i] === 'symbol'){
+     let symbolCharacter = symbols.charAt(Math.floor(Math.random() * symbols.length));
+     firstCharacters.push(symbolCharacter);
+     
+    }
+ 
+    console.log(firstCharacters);
+    password = firstCharacters.join('');
+ 
+ 
+ 
+   }
 }
 
 
