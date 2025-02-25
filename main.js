@@ -49,6 +49,7 @@ function generatePassword(passLength){
     return}
   checkInputs()
   addInitialCharacters()
+  
 
   /////////////////////////////////////////////////////////////////////////
 //////////////////Generate Remaining////////////////////////////////////
@@ -143,6 +144,24 @@ function addInitialCharacters() {
    }
 }
 
+function checkStrength() {
+  const allBars = document.querySelectorAll('.strength-box__bar');
+  console.log('checking strength')
+  console.log(`${password}😀`)
+  const regStrong = /^(?=.*[abcdefghijklmnopqrstuvxyz])(?=.*[ABCDEFGHIJKLMNOPQRSTUVXYZ])(?=.*[0123456789])(?=.*[!"#$%&'()*+,\-./:;<=>?@[\]^_`{|}~]).{13,20}$/;
+  if (regStrong.test(password)){
+    console.log('password is strong ✅')
+    
+    allBars.forEach((bar) => {
+      bar.classList.add('strong');
+    })
+  
+  } else {
+    console.log('password is not strong ❌')
+  }
+
+}
+
 
 // SHUFFLE
 function shuffleString(str) {
@@ -157,7 +176,7 @@ function shuffleString(str) {
 generateButton.addEventListener('click', () => {
   generatePassword(slider.value)
   firstCharacters = [];
- 
+  checkStrength()
 })
 
 
