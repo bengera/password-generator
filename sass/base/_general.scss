@@ -38,6 +38,13 @@ main {
   background-color: clr(neutral, 300);
 }
 
+.pw-text {
+  @include mq(small) {
+    font-size: 20px;
+    
+  }
+}
+
 .controls {
   background-color: clr(neutral, 300);
   padding: 1.5rem;
