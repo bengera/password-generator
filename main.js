@@ -3,6 +3,11 @@ const output = document.getElementById('sliderValue');
 const generateButton = document.querySelector('.button');
 const passwordField = document.querySelector('.pw-text');
 
+const bar1 = document.getElementById('box-1');
+const bar2 = document.getElementById('box-2');
+const bar3 = document.getElementById('box-3');
+const bar4 = document.getElementById('box-4');
+
 // FF not respecting default value
 document.addEventListener("DOMContentLoaded", ()=> {
   slider.value = 0;
@@ -39,13 +44,13 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
   let firstCharacters = [];
 
 function generatePassword(passLength){
+  if (passLength < 4){
+    passwordField.textContent = `Too short`
+    return}
   checkInputs()
   addInitialCharacters()
-  
- 
 
-
-/////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////
 //////////////////Generate Remaining////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
