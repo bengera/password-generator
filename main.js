@@ -180,16 +180,25 @@ function checkStrength() {
     currentStrength.textContent ='MEDIUM';
     const threeBars = Array.from(allBars).slice(0, 3); // convert nodeList into array
     threeBars.forEach((bar) =>{
-
-      bar.classList.add('medium')
+    bar.classList.add('medium')
     })
     
 
   } else if(regWeak.test(password)) {
     console.log('password is weak 🟠')
+    currentStrength.textContent ='WEAK';
+    const twoBars = Array.from(allBars).slice(0, 2); // convert nodeList into array
+    twoBars.forEach((bar) =>{
+      bar.classList.add('weak')
+      })
 
   } else if(regTooWeak.test(password)) {
     console.log('password is too weak 🔴')
+    currentStrength.textContent ='TOO WEAK!';
+    const oneBar = Array.from(allBars).slice(0, 1); // convert nodeList into array
+    oneBar.forEach((bar) =>{
+      bar.classList.add('tooweak')
+      })
   }
 
 }
