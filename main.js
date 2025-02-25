@@ -144,11 +144,20 @@ function addInitialCharacters() {
    }
 }
 
+/*
+ regMedium = at least one number, symbol, uppercase and lowercase letter between 9-12 characters
+ regWeak = at least 6-8 characters using only 2 types
+ regTooWeak = 1-5 characters only (type doesnt matter)
+*/
+
 function checkStrength() {
   const allBars = document.querySelectorAll('.strength-box__bar');
-  console.log('checking strength')
-  console.log(`${password}😀`)
+  
   const regStrong = /^(?=.*[abcdefghijklmnopqrstuvxyz])(?=.*[ABCDEFGHIJKLMNOPQRSTUVXYZ])(?=.*[0123456789])(?=.*[!"#$%&'()*+,\-./:;<=>?@[\]^_`{|}~]).{13,20}$/;
+  const regMedium = /^(?=.*[abcdefghijklmnopqrstuvxyz])(?=.*[ABCDEFGHIJKLMNOPQRSTUVXYZ])(?=.*[0123456789])(?=.*[!"#$%&'()*+,\-./:;<=>?@[\]^_`{|}~]).{9,12}$/;
+  const regWeak = /^(?=(?:.*[abcdefghijklmnopqrstuvxyz])?(?:.*[ABCDEFGHIJKLMNOPQRSTUVXYZ])?(?:.*[0123456789])?(?:.*[!"#$%&'()*+,\-./:;<=>?@[\]^_`{|}~])?){2}.*.{6,8}$/;
+  const regTooWeak = /^.{1,5}$/;
+
   if (regStrong.test(password)){
     console.log('password is strong ✅')
     
@@ -156,8 +165,14 @@ function checkStrength() {
       bar.classList.add('strong');
     })
   
-  } else {
-    console.log('password is not strong ❌')
+  } else if(regMedium.test(password)) {
+    console.log('password is medium 🟡')
+
+  } else if(regWeak.test(password)) {
+    console.log('password is weak 🟠')
+
+  } else if(regTooWeak.test(password)) {
+    console.log('password is too weak 🔴')
   }
 
 }
