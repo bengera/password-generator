@@ -2,6 +2,7 @@ const slider = document.getElementById('slider');
 const output = document.getElementById('sliderValue');
 const generateButton = document.querySelector('.button');
 const passwordField = document.querySelector('.pw-text');
+const currentStrength = document.querySelector('.strength-box__current');
 
 const bar1 = document.getElementById('box-1');
 const bar2 = document.getElementById('box-2');
@@ -150,7 +151,16 @@ function addInitialCharacters() {
  regTooWeak = 1-5 characters only (type doesnt matter)
 */
 
+function resetBars(){
+  const allBars = document.querySelectorAll('.strength-box__bar');
+  allBars.forEach((bar) => {
+    bar.classList.remove('strong', 'medium', 'weak', 'tooweak');
+  })
+}
+
 function checkStrength() {
+  resetBars();
+
   const allBars = document.querySelectorAll('.strength-box__bar');
   
   const regStrong = /^(?=.*[abcdefghijklmnopqrstuvxyz])(?=.*[ABCDEFGHIJKLMNOPQRSTUVXYZ])(?=.*[0123456789])(?=.*[!"#$%&'()*+,\-./:;<=>?@[\]^_`{|}~]).{13,20}$/;
@@ -160,13 +170,20 @@ function checkStrength() {
 
   if (regStrong.test(password)){
     console.log('password is strong ✅')
-    
+    currentStrength.textContent ='STRONG';
     allBars.forEach((bar) => {
-      bar.classList.add('strong');
+    bar.classList.add('strong');
     })
   
   } else if(regMedium.test(password)) {
     console.log('password is medium 🟡')
+    currentStrength.textContent ='MEDIUM';
+    const threeBars = Array.from(allBars).slice(0, 3); // convert nodeList into array
+    threeBars.forEach((bar) =>{
+
+      bar.classList.add('medium')
+    })
+    
 
   } else if(regWeak.test(password)) {
     console.log('password is weak 🟠')
