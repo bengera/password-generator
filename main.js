@@ -38,8 +38,6 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
   const numbers = "0123456789";
   const symbols = `!"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~`;
 
-  //Array(4) [ "Z", "q", "5", "\\" ]
- 
   let selectedTypes = [];
   let allChar = '';
   let password = '' 
@@ -53,9 +51,7 @@ function generatePassword(passLength){
   addInitialCharacters()
   
 
-  /////////////////////////////////////////////////////////////////////////
-//////////////////Generate Remaining////////////////////////////////////
-////////////////////////////////////////////////////////////////////////
+// Generate remaining
 
   let types = allChar;
   for (let i = 0; i < passLength - 4; i++){
@@ -83,7 +79,6 @@ function checkInputs(){
   }
 
   if (checkbox.id === 'lower'){
-   
     allChar += lowCase;
     selectedTypes.push('lower')
   }
@@ -137,10 +132,7 @@ function addInitialCharacters() {
      
     }
  
-    // console.log(firstCharacters);
-    password = firstCharacters.join('');
- 
- 
+      password = firstCharacters.join('');
  
    }
 }
@@ -154,11 +146,10 @@ function resetBars(){
 
 function checkStrength() {
   resetBars();
-
   const allBars = document.querySelectorAll('.strength-box__bar');
   
   const regStrong = /^(?=.*[abcdefghijklmnopqrstuvxyz])(?=.*[ABCDEFGHIJKLMNOPQRSTUVXYZ])(?=.*[0123456789])(?=.*[!"#$%&'()*+,\-./:;<=>?@[\]^_`{|}~]).{13,20}$/;
-  const regMedium = /^(?=.*[abcdefghijklmnopqrstuvxyz])(?=.*[ABCDEFGHIJKLMNOPQRSTUVXYZ])(?=.*[0123456789])(?=.*[!"#$%&'()*+,\-./:;<=>?@[\]^_`{|}~]).{9,12}$/;
+  const regMedium = /^(?=(?:.*[abcdefghijklmnopqrstuvxyz])?(?:.*[ABCDEFGHIJKLMNOPQRSTUVXYZ])?(?:.*[0123456789])?(?:.*[!"#$%&'()*+,\-./:;<=>?@[\]^_`{|}~])?){3}.*.{9,12}$/;
   const regWeak = /^(?=(?:.*[abcdefghijklmnopqrstuvxyz])?(?:.*[ABCDEFGHIJKLMNOPQRSTUVXYZ])?(?:.*[0123456789])?(?:.*[!"#$%&'()*+,\-./:;<=>?@[\]^_`{|}~])?){2}.*.{6,8}$/;
   const regTooWeak = /^.{1,5}$/;
 
@@ -227,17 +218,4 @@ copyButton.addEventListener('click', async () => {
    }
  }
 })
-
-
-// function copyPassword() {
-//   let fieldText = passwordField.innerHTML;
-//    async () => {
-//     try {
-//       await navigator.clipboard.writeText(fieldText);
-//       console.log('Password copied to clipboard');
-//     } catch(err){
-//       console.log('Failed to copy:', err)
-//     }
-//   }
-// }
 
