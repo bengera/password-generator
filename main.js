@@ -1,6 +1,7 @@
 const slider = document.getElementById('slider');
 const output = document.getElementById('sliderValue');
 const generateButton = document.querySelector('.button');
+const copyButton = document.getElementById('btn-copy');
 const passwordField = document.querySelector('.pw-text');
 const currentStrength = document.querySelector('.strength-box__current');
 
@@ -63,8 +64,7 @@ function generatePassword(passLength){
   }
   password = shuffleString(password)
   console.log(`This password is ${password.length} characters long`)
-  //  console.log(password)
-   passwordField.textContent = password;
+  passwordField.textContent = password;
   return password;
 }
 
@@ -83,32 +83,32 @@ function checkInputs(){
   }
 
   if (checkbox.id === 'lower'){
-    // console.log('Lower confirmed 👍')
+   
     allChar += lowCase;
     selectedTypes.push('lower')
   }
 
   if (checkbox.id === 'number'){
-    // console.log('number confirmed 👍')
+    
     allChar += numbers;
     selectedTypes.push('number')
   }
 
   if (checkbox.id === 'symbol'){
-    // console.log('symbol confirmed 👍')
+    
     allChar += symbols;
     selectedTypes.push('symbol')
   }
   
      
   })
-  // console.log(`allChar contains ➡ ${allChar}`)
+
   
 }
 
 function addInitialCharacters() {
   for (let i = 0; i < selectedTypes.length; i++){
-    console.log(selectedTypes[i]);
+    
     
     if(selectedTypes[i] === 'lower'){
      let lowerCharacter = lowCase.charAt(Math.floor(Math.random() * lowCase.length));
@@ -137,19 +137,13 @@ function addInitialCharacters() {
      
     }
  
-    console.log(firstCharacters);
+    // console.log(firstCharacters);
     password = firstCharacters.join('');
  
  
  
    }
 }
-
-/*
- regMedium = at least one number, symbol, uppercase and lowercase letter between 9-12 characters
- regWeak = at least 6-8 characters using only 2 types
- regTooWeak = 1-5 characters only (type doesnt matter)
-*/
 
 function resetBars(){
   const allBars = document.querySelectorAll('.strength-box__bar');
@@ -187,7 +181,7 @@ function checkStrength() {
   } else if(regWeak.test(password)) {
     console.log('password is weak 🟠')
     currentStrength.textContent ='WEAK';
-    const twoBars = Array.from(allBars).slice(0, 2); // convert nodeList into array
+    const twoBars = Array.from(allBars).slice(0, 2); 
     twoBars.forEach((bar) =>{
       bar.classList.add('weak')
       })
@@ -195,7 +189,7 @@ function checkStrength() {
   } else if(regTooWeak.test(password)) {
     console.log('password is too weak 🔴')
     currentStrength.textContent ='TOO WEAK!';
-    const oneBar = Array.from(allBars).slice(0, 1); // convert nodeList into array
+    const oneBar = Array.from(allBars).slice(0, 1); 
     oneBar.forEach((bar) =>{
       bar.classList.add('tooweak')
       })
@@ -220,8 +214,30 @@ generateButton.addEventListener('click', () => {
   checkStrength()
 })
 
+copyButton.addEventListener('click', async () => {
+  console.log('Copy button clicked')
+  let fieldText = passwordField.innerText;
+  console.log(fieldText)
+  {
+   try {
+     await navigator.clipboard.writeText(fieldText);
+     console.log('Password copied to clipboard');
+   } catch(err){
+     console.log('Failed to copy:', err)
+   }
+ }
+})
 
-/*
 
+// function copyPassword() {
+//   let fieldText = passwordField.innerHTML;
+//    async () => {
+//     try {
+//       await navigator.clipboard.writeText(fieldText);
+//       console.log('Password copied to clipboard');
+//     } catch(err){
+//       console.log('Failed to copy:', err)
+//     }
+//   }
+// }
 
-*/
