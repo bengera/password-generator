@@ -19,10 +19,14 @@ h1 {
 
 main {
   padding: 1rem;
+  display: flex;
+justify-content: center;
+flex-direction: column;
+min-height: 100vh;
 }
 
 .app {
-  // border: 2px solid black;
+ 
   max-width: 540px;
   margin: 0 auto;
 }
@@ -31,7 +35,6 @@ main {
   display: flex;
   justify-content: space-between;
   font-size: 32px;
-  // border: 1px solid red;
   margin-bottom: 1rem;
   padding: 1rem 1.5rem;
   align-items: center;
@@ -71,7 +74,7 @@ main {
 
     &__character-text {
       align-self: center;
-      // font-size: fs(400);
+     
     }
   }
 
@@ -99,10 +102,7 @@ main {
     display: flex;
     gap: 1.5rem;
   }
-
  
-
-  // Strength
 
   .strength-box {
     display: flex;
@@ -215,9 +215,7 @@ main {
     
   }
 
-  //BARS
 
-  //STRONG
 .strength-box {
   &__bar.strong {
     background-color: clr(accent, 200);
@@ -239,14 +237,4 @@ main {
     border: 0;
   }
 }
-
-
-
-  // #box-1,
-  // #box-2,
-  // #box-3 {
-  //   background-color: clr(accent, 100);
-  //   border: 0;
-  // }
-
 
